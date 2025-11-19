@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PDM1 - W8P1 - Exercise 1.3</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../lib/main-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="../lib/libraries/p5.min.js"></script>
+    <script src="../lib/libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Exercise 1.3</h1>
+    <p>Your sketch:</p>
+    <div class="guidance">
+        <h2>Instructions</h2>
+        <div>
+            <p>Use oscillators to create a musical instrument that generates sound when the 
+                user interacts with shapes on the canvas.</p>
+            <p>To create an oscillator, you will need to create an object of one of the p5.js sound library's 
+                oscillator classes: <code>p5.SinOsc</code>, <code>p5.TriOsc</code>, <code>p5.SqrOsc</code>, 
+                or <code>p5.SawOsc</code>. Here is an example:
+            </p>
+            <pre>let osc;
+function setup() {
+    createCanvas(400, 300);
+    osc = new p5.SinOsc();
+}</pre>
+<p>To start an oscillator, call <code>osc.start()</code>. To stop an oscillator, call <code>osc.stop()</code>.</p>
+<p>Your instrument should play at least five different notes. You can create different notes using <code>osc.freq()</code> 
+to set the frequency (pitch) of the oscillator. The higher the frequency, the higher the note.</p> 
+<p>In the video below, five different notes are generated randomly. The user clicks on a square to play the associated note. The shade of 
+    blue used to fill each square reflects the pitch of the note--the darker the fill, the lower the note. The 
+    x location of each square is used to set it's pan.
+</p> 
+<p>You will find the <a href="https://p5js.org/reference/p5.sound/p5.Oscillator/" target="_blank">p5.js Oscillator documentation</a> helpful for this task.</p>          
+<p>This is an open-ended creative task so there are no tests for this exercise.</p>
+            <p>Example output:</p>
+            <p>
+                <video width="600" height="400" controls>
+                    <source src="./assets/exercise1-3.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </p>
+        </div>
+        <div>
+            <button class="btn btn-primary hint" type="button" data-bs-toggle="collapse" data-bs-target="#hint" aria-expanded="false" aria-controls="hint">
+                Hint
+            </button>
+            <div class="collapse" id="hint">
+                <div class="card card-body">
+                    <p>You will need to choose the frequency of each note. Picking frequencies between 50 and 1000 is recommended but 
+                        you can go with whatever frequencies appeal to you.
+                    </p>
+                    <p>If you would like to make your instrument sound like a real instrument e.g. a piano, try searching online 
+                        for the frequencies of specific notes. For example, this resources lists the frequencies of notes on a 
+                        keyboard: <a href="https://www.vibrationdata.com/tutorials2/piano.pdf" target="_blank">https://www.vibrationdata.com/tutorials2/piano.pdf</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="sketch.js"></script>
+  </body>
+</html>

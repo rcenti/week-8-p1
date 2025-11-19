@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PDM1 - W8P1 - Exercise 1.4</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../lib/main-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="../lib/libraries/p5.min.js"></script>
+    <script src="../lib/libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Exercise 1.4</h1>
+    <p>Your sketch:</p>
+    <div class="guidance">
+        <h2>Instructions</h2>
+        <div>
+            <p>Make a creature that "talks" with microphone input (assuming you have a microphone!). You can use the character you created 
+at the start of the semester. The last time you worked on it was probably week 2 practical 2, exercise 2-2. If you want to use 
+your existing character, copy the code from that exercise into sketch.js.
+            </p> 
+<p>Create a global <code>p5.AudioIn</code> object and use its <code>getLevel()</code> method to get the volume of sound picked 
+up by the microphone. You can then use this number to move your character's mouth with the microphone level.</p>          
+<p>This is an open-ended creative task so there are no tests for this exercise.</p>
+<h3>My sketch isn't responding to my mic</h3>
+<p>If your browser appears to be receiving microphone input but <code>getLevel()</code> still 
+    returns 0, add the following line in <code>setup()</code> before starting the mic:</p>
+    <pre>getAudioContext().suspend();</pre>
+<p>Then, call p5.js' <code>userStartAudio()</code> function inside the <code>mouseClicked()</code> function.</p>
+<p>You can see a complete example in the code for <a href="https://github.com/UoY-PDM1/PDM1-example-code/blob/main/Lectures/W8L1/audioIn/sketch.js" target="_blank">Week 8 Lecture 1 (audioIn)</a>.</p>
+<p>Example output:</p>
+            <p>
+                <video width="300" controls>
+                    <source src="./assets/exercise1-4.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </p>
+        </div>
+        <div>
+            <button class="btn btn-primary hint" type="button" data-bs-toggle="collapse" data-bs-target="#hint" aria-expanded="false" aria-controls="hint">
+                Hint
+            </button>
+            <div class="collapse" id="hint">
+                <div class="card card-body">
+                    <p><em>In these tips, I assume you're animating your creature's mouth. If you're animating something else, 
+                        these tips should still help--just substitute mouth with whatever you're animating.
+                    </em></p>
+                    <p>Animate only one property of the creature's mouth: x, y, width, or height. For example, to make Robert's 
+                        mouth move, I adjust only the y location of his mouth.
+                    </p>
+                    <p>Decide on a suitable range of movement for your animation. For example, Robert's mouth can only move a 
+                        maximum of 100 pixels down the y axis from its normal position.
+                    </p>
+                    <p>Get the microphone's level (e.g. <code>mic.getLevel()</code>) every frame. The <code>getLevel()</code> method 
+                    will return a float between 0 and 1. You can use it to figure out how much to move your creature's mouth 
+                within the range of movement. For example, when the mic level is 0, the mouth should be in its normal position and when 
+            the mic level is 1, the mouth should be as far from its normal position as it can move. To do this, I created a variable to store 
+        the mouth's usual position and another variable to store the maximum movement. Then, the mouth's position can be calculated as:<br>
+    mouth position + mic level * maximum movement</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="sketch.js"></script>
+  </body>
+</html>
